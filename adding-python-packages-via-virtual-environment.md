@@ -8,9 +8,14 @@ python3 -m venv my-virtual-env
 
 Launch a shell session within your container using Singularity (in this case `tensorflow_24.03-tf2-py3.sif`).
 
-```
-srun --pty singularity shell /ceph/container/tensorflow_24.03-tf2-py3.sif
-```
+<div class="show-on-ai-lab" style="display:none;" markdown="1">
+    srun --pty singularity shell /ceph/container/tensorflow_24.03-tf2-py3.sif
+</div>
+
+<div class="show-on-ai-cloud" style="display:none;" markdown="1">
+    srun --pty singularity shell tensorflow_24.03-tf2-py3.sif
+</div>
+
 
 Once inside the container's shell, activate the virtual environment you just created.
 

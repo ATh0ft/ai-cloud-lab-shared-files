@@ -11,7 +11,7 @@ This copies a link to the container image which we will use in the following exa
 
 We need to use Singularity to download the container image and in order to run Singularity, we must run it through the Slurm queueing system using the command `srun`. 
 
-To download the container image to your AI-LAB instance paste the url to the container image like so:
+To download the container image to your directory paste the url to the container image like so:
 
 `srun --mem 40G singularity pull docker://nvcr.io/nvidia/tensorflow:24.03-tf2-py3`
 
@@ -31,7 +31,7 @@ Once the `singularity pull` command has completed, you should have a file called
 
 ## Work-around for memory-consuming downloads
 
-Downloading some Singularity container images to AI-LAB may require a large amount of memory to succeed, such as:
+Downloading some Singularity container images may require a large amount of memory to succeed, such as:
 
 ```console
 srun singularity pull docker://nvcr.io/nvidia/tensorflow:23.03-tf1-py3
@@ -47,24 +47,24 @@ srun --pty bash -l
 ```
 (You may add the `--nodelist` parameter to request a particular compute node as usual with `srun`.)
 
-2. Create a temporary directory for yourself to use during build of your container image:  
+1. Create a temporary directory for yourself to use during build of your container image:  
 ```console
 mkdir /tmp/`whoami`
 ```
 *Take note of the back-tick characters in the above command; this is just to create a directory called `/tmp/username` if your username is `username`. You can call it something else instead, but it is important to create it under `/tmp`.*
 
-3. Run Singularity to build your container image, using your new directory in `/tmp` for temporary data storage:  
+1. Run Singularity to build your container image, using your new directory in `/tmp` for temporary data storage:  
 ```console
 SINGULARITY_TMPDIR=/tmp/`whoami` singularity pull docker://nvcr.io/nvidia/tensorflow:23.03-tf1-py3
 ```
 *The `SINGULARITY_TMPDIR` variable should be set to whatever you named your temporary directory in step 2.*
 
-4. After Singularity has finished building, delete your temporary directory:  
+1. After Singularity has finished building, delete your temporary directory:  
 ```console
 rm -r /tmp/`whoami`
 ```
 
-5. Exit your interactive job:  
+1. Exit your interactive job:  
 ```console
 exit
 ```

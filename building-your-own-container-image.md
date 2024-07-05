@@ -49,7 +49,7 @@ Now, enter a name, in this case "mytoken" and press "Create Access Token". An ac
 
 ![Image of CLAAUDIA Logo](../assets/img/sylabs-create-token.png)
 
-Now go back to AI-LAB and enter the following command to verify your access token:
+Now go back to the terminal and enter the following command to verify your access token:
 
 ```
 srun singularity remote login
@@ -63,7 +63,7 @@ Token entered will be hidden for security.
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3lsYWJzLmlvL3Rva2VuIiwic3ViIjoiNjY3YThmMTJmMGVkNGQxMzdhYTA1NzMwIiwiZXhwIjoxNzIxOTA0MzE4LCJpYXQiOjE3MTkzMTIzMTgsImp0aSI6IjY2N2E5ZmJlMTRjNTI5MTY5Zjk4OGQwYyJ9.DseTflfB6_mT_9HQpX6tUetfdOR7-_QzVdJOu-reO6OY6rFYJ1ZU2acbkPJ2sLqUSGYfTp8bAOrvawZKJQ1hIGkFx3qGjK1s_sFx18dboN0zjFZPbsk41m6Vmu3u5d1tWzfCDn2GgGBgdeJ411M6ECvfAFCV5In3G5abZ44KyY_N1_ziPOYTmLCbtGEbagxBFIBIyGVhMtyFNdaPfVANko8BtsCAhi3_dW0jsT4EzMBpf3afEhdbjIPP5T_gWuTzxqY-VEQQZVYKr-TA9rfv-CPS_kzBK8AQ3kZThryUTi818Xxolr2UGjjph-m4aVN9sLNfSqJu3PQx1UdxBsyoPA
 Access Token:
 INFO:    Access Token Verified!
-INFO:    Token stored in /ceph/home/its.aau.dk/ry90cd/.singularity/remote.yaml
+...
 ```
 
 This You can now build container images from definition files using `--remote`. Lets build a container image from `python3.def` file:
