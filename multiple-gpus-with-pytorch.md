@@ -279,8 +279,8 @@ To execute the multi-GPU training script we will use a Bash script (submit_job.s
 <div class="show-on-ai-cloud" style="display:none;" markdown="block">
   - `--job-name`: Specifies the name of the job.
   - `-partition`: Defines the partition or queue to submit the job to (l4 in this example).
-  - `--cpus-per-task`:
-  - `--mem`: 
+  - `--cpus-per-task`: Specifies the number of CPUs allocated to each task.
+  - `--mem`: Specifies the memory allocated to the job.
   - `--time`: Adjust these settings based on your specific resource requirements.
   - `num_gpus`: Modify this variable to specify the number of GPUs (--ntasks and --gres=gpu) allocated for your job.
   - `srun singularity exec --nv pytorch_24.03-py3.sif python3 multi_gpu.py --world_size=$num_gpus`: Executes the job inside the specified Singularity container (`pytorch_24.03-py3.sif`) with Python 3, running the `multi_gpu.py` script and passing `--world_size=$num_gpus` as an argument to specify the number of GPUs for distributed training.
