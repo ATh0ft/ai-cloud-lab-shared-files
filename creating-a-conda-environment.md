@@ -5,7 +5,7 @@ Creating a conda environment in a container may be easily done using [cotainr](h
     [cotainr](https://cotainr.readthedocs.io/en/stable/) is a tool developed by DeiC to ease building of Singularity containers. It can be used to build custom containers with additional software installable by Conda and Pip. This means it is primarily for adding Python packages to a container. It works from a base container image that you specify and then build additional Anaconda and pip packages which you supply as a conda environment specification.
 
 <div class="show-on-ai-lab" style="display:none;" markdown="span">
-  cotainr is included in the `/ceph/container` directory. To check the current version, enter `ls /ceph/container`. Currently, the version used in this guide is `cotainr-2023.11.0`.
+  Cotainr is included in the `/ceph/container` directory. To check the current version, enter `ls /ceph/container`. Currently, the version used in this guide is `cotainr-2023.11.0`.
 
   You can access cotainr by using the path `/ceph/container/cotainr-2023.11.0/bin/cotainr`. But first we will create a conda environment file, `conda_env.yml` that contains the conda channels/repositories and packages you need:
 </div>
@@ -76,7 +76,7 @@ After some time you should have `conda_container.sif` container image in your di
 
 You can access the conda image and run code using the dependencies you set up. Lets try to see if it works by printing the numpy version:
 
-```console
+```
 srun singularity exec conda_container.sif python3 -c "import numpy; print(numpy.__version__)"
 ```
 

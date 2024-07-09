@@ -1,17 +1,17 @@
 To effectively run jobs, it's important to understand the hardware configuration and set appropriate parameters for resource allocation. Here’s a detailed guide on setting Slurm parameters based on the specified hardware on the platform:
 
-
 ### Memory per job
-`--mem` specifies the memory allocated to the job. Maximum value is 60 GB per GPU. Example:
-
 <div class="show-on-ai-lab" style="display:none;" markdown="span">
+    `--mem` specifies the memory allocated to the job. Maximum value is 60 GB per GPU. Example:
+
     ```
     srun --mem=60G singularity exec --nv /ceph/container/tensorflow_24.03-tf2-py3.sif python3 benchmark_tensorflow.py
     ```
 </div>
 
-
 <div class="show-on-ai-cloud" style="display:none;" markdown="span">
+    `--mem` specifies the memory allocated to the job. Example:
+
     ```
     srun --mem=60G singularity exec --nv tensorflow_24.03-tf2-py3.sif python3 benchmark_tensorflow.py
     ```
@@ -19,41 +19,41 @@ To effectively run jobs, it's important to understand the hardware configuration
 
 ### CPUs per task
 
-`--cpus-per-task` specifies the number of CPUs allocated to each task. Maximum value is 15 CPUs per GPU. Example:
-
 <div class="show-on-ai-lab" style="display:none;" markdown="span">
+    `--cpus-per-task` specifies the number of CPUs allocated to each task. Maximum value is 15 CPUs per GPU. Example:
+
     ```
     srun --cpus-per-task=15 singularity exec --nv /ceph/container/tensorflow_24.03-tf2-py3.sif python3 benchmark_tensorflow.py
     ```
+
+    <p>There is actually 16 CPUs per GPU available, but using a maximum of 15 CPUs per GPU, leaves 1 CPU free per GPU for system overhead and non-GPU tasks, which helps in maintaining overall system stability and performance.</p>
 </div>
 
-
 <div class="show-on-ai-cloud" style="display:none;" markdown="span">
+    `--cpus-per-task` specifies the number of CPUs allocated to each task. Example:
+
     ```
     srun --cpus-per-task=15 singularity exec --nv tensorflow_24.03-tf2-py3.sif python3 benchmark_tensorflow.py
     ```
 </div>
 
-
-There is actually 16 CPUs per GPU available, but using a maximum of 15 CPUs per GPU, leaves 1 CPU free per GPU for system overhead and non-GPU tasks, which helps in maintaining overall system stability and performance. 
-
 ### GPUs per job
 
-`--gres=gpu` specifies the number of GPUs required for the jobs. Maximum value is 8 GPUs per job. Example:
-
 <div class="show-on-ai-lab" style="display:none;" markdown="span">
+    `--gres=gpu` specifies the number of GPUs required for the jobs. Maximum value is 8 GPUs per job. Example:
+
     ```
     run --gres=gpu:4 singularity exec --nv /ceph/container/tensorflow_24.03-tf2-py3.sif python3 benchmark_tensorflow.py
     ```
 </div>
 
-
 <div class="show-on-ai-cloud" style="display:none;" markdown="span">
+    `--gres=gpu` specifies the number of GPUs required for the jobs. Example:
+
     ```
     srun --gres=gpu:4 singularity exec --nv tensorflow_24.03-tf2-py3.sif python3 benchmark_tensorflow.py
     ```
 </div>
-
 
 Request only the number of GPUs your job can effectively utilize. Over-requesting can lead to resource underutilization and longer queue times. Some applications may need adjustments to scale effectively across multiple GPUs. [Here](multiple-gpus-with-pytorch.md) is an example of a PyTorch script that can handle multiple GPUs. 
 
