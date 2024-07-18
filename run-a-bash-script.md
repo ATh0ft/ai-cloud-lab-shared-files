@@ -57,13 +57,13 @@ Create a bash script named run_job.sh:
 
 Explanation of SBATCH Options:
 
-- `--job-name`: Name of the job (<span style="font-weight: 700;">Optional</span>).
-- `--output`: File where standard output will be written, with %j replaced by the job ID (<span style="font-weight: 700;">Required</span>).
-- `--error`: File where standard error will be written, with %j replaced by the job ID (<span style="font-weight: 700;">Optional</span>).
-- `--time`: Maximum run time (hh:mm) (<span style="font-weight: 700;">Optional</span>).
-- `--ntasks`: Number of tasks (<span style="font-weight: 700;">Optional</span>).
-- `--cpus-per-task`: Number of CPUs per task (<span style="font-weight: 700;">Optional</span>).
-- `--mem`: Memory per node (<span style="font-weight: 700;">Optional</span>).
+- `--job-name`: Name of the job
+- `--output`: File where standard output will be written, with %j replaced by the job ID
+- `--error`: File where standard error will be written, with %j replaced by the job ID
+- `--time`: Maximum run time (hh:mm)
+- `--ntasks`: Number of tasks
+- `--cpus-per-task`: Number of CPUs per task
+- `--mem`: Memory per node
 
 #### Step 4: Submit the Job
 To submit the job, use the sbatch command:
